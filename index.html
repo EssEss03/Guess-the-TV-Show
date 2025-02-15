@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Show Guessing Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>TV Show Guessing Game</h1>
+        <p id="loading" style="display: none;">Loading...</p>
+        <p id="description">Loading show description...</p>
+        <input type="text" id="guess" placeholder="Enter your guess">
+        <button id="submit">Submit</button>
+        <p id="message"></p>
+        <p id="hints"></p>
+        <p>Score: <span id="score">0</span></p>
+        <p>🏆 High Score: <span id="highScore">0</span></p>
+        <p id="timer">⏳ Time Left: 15s</p>
+
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="correctSound" src="sounds/correct.mp3"></audio>
+    <audio id="wrongSound" src="sounds/wrong.mp3"></audio>
+    <audio id="timeUpSound" src="sounds/time-up.mp3"></audio>
+
+    <script>
+        function playSound(soundId) {
+            let sound = document.getElementById(soundId);
+            if (sound) {
+                sound.play().catch(error => console.error("Audio playback error:", error));
+            }
+        }
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

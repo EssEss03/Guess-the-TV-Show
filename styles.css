@@ -33,11 +33,18 @@
     100% { opacity: 0.8; }
 }
 
-/* Floating TV Icons */
-@keyframes float {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.05); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.8; }
+/* ✅ Bounce Animation for #tv-bottom (Left to Right) */
+@keyframes bounceHorizontal {
+    0% { left: 0; transform: translateX(0); }
+    50% { left: 80%; transform: translateX(-50%); }
+    100% { left: 0; transform: translateX(0); }
+}
+
+/* ✅ Bounce Animation for #tv-top (Right to Left) */
+@keyframes bounceHorizontalReverse {
+    0% { right: 0; transform: translateX(0); }
+    50% { right: 80%; transform: translateX(50%); }
+    100% { right: 0; transform: translateX(0); }
 }
 
 /* Global Styles */
@@ -51,10 +58,13 @@ body {
 
 /* Homepage Container */
 .home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers vertically */
+    align-items: center; /* Centers horizontally */
     text-align: center;
-    padding: 50px;
-    color: white;
-    max-width: 500px;
+    max-width: 900px; /* Increased width */
+    min-height: 60vh; /* Increased height */
     margin: auto;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -62,21 +72,28 @@ body {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
     animation: fadeIn 0.8s ease-in-out;
     border: 2px solid rgba(255, 255, 255, 0.2);
-    position: relative;
+    position: relative; /* ✅ Ensures TV icons stay inside */
+    overflow: hidden; /* ✅ Prevents overflow */
 }
 
-/* Floating TV Icons */
+/* ✅ Updated TV Icons */
 .tv-icon {
-    font-size: 30px;
+    font-size: 60px;
     position: absolute;
     color: #ffcc00;
-    opacity: 0.7;
-    animation: float 3s infinite ease-in-out;
+    opacity: 0.8;
 }
 
-.tv-icon:nth-child(1) { top: 10px; left: 20px; animation-delay: 0s; }
-.tv-icon:nth-child(2) { top: 50px; right: 30px; animation-delay: 1s; }
-.tv-icon:nth-child(3) { bottom: 30px; left: 40px; animation-delay: 2s; }
+/* ✅ Adjust positioning for each TV icon */
+#tv-bottom {
+    bottom: 10%; 
+    animation: bounceHorizontal 5s infinite alternate ease-in-out; /* Left to Right */
+}
+
+#tv-top {
+    top: 10%;
+    animation: bounceHorizontalReverse 5s infinite alternate ease-in-out; /* Right to Left */
+}
 
 /* Homepage Title */
 .home-container h1 {
@@ -118,6 +135,62 @@ body {
     transform: scale(1.05);
 }
 
+/* ✅ Updated .input-container (Stacked & Centered Layout) */
+.input-container {
+    display: flex;
+    flex-direction: column; /* Stacks input and button vertically */
+    align-items: center; /* Centers both elements horizontally */
+    gap: 10px; /* Space between input and button */
+    width: 100%;
+}
+
+/* ✅ Improved Submit Button */
+#submit {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(to right, #ff8c00, #ff4500); /* Gradient */
+    color: white;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    min-width: 120px; /* Consistent button size */
+}
+
+/* ✅ Hover Effect - Glowing Border */
+#submit:hover {
+    background: linear-gradient(to right, #ff4500, #ff8c00);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.8);
+}
+
+/* ✅ Click Animation */
+#submit:active {
+    transform: scale(0.95);
+}
+
+/* ✅ Fun Animated Icon on Hover */
+#submit::after {
+    content: " 🎯"; /* Target emoji */
+    font-size: 20px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#submit:hover::after {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
 /* Game Container */
 .game-container {
     background: rgba(255, 255, 255, 0.1);
@@ -157,50 +230,16 @@ h1 {
     color: white;
 }
 
-/* Input Field */
-input {
-    width: 85%;
-    padding: 12px;
-    margin-top: 10px;
-    border: 2px solid #fff;
-    border-radius: 8px;
-    font-size: 16px;
-    text-align: center;
-    outline: none;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-}
-
-input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-/* Buttons */
-button {
-    width: 90%;
-    padding: 12px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    background: linear-gradient(to right, #00c6ff, #0072ff);
-    color: white;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-    background: linear-gradient(to right, #0072ff, #00c6ff);
-    transform: scale(1.05);
-}
-
 /* Message for Correct / Incorrect */
 #message {
     font-size: 18px;
     font-weight: bold;
     margin-top: 15px;
+    animation: shake 0.3s ease-in-out;
+}
+
+/* ✅ Ensure input field shakes when class is added */
+.shake {
     animation: shake 0.3s ease-in-out;
 }
 
@@ -223,6 +262,59 @@ p {
     font-size: 20px;
     font-weight: bold;
     color: #ffcc00;
+}
+
+/* Input Field */
+input {
+    width: 85%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* TV Show Image Container */
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 220px;
+    overflow: hidden;
+}
+
+/* Apply Blur Effect to TV Show Image */
+.blurred-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(12px);
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Dark Overlay to Hide Text in Image */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 /* Responsive Design */

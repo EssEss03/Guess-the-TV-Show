@@ -1,9 +1,11 @@
 🎬 Guess the TV Show 🎯
+
 Test your TV knowledge! Can you guess the show based on its description?
 
 ------------------------------------------------------------------------------
 
 📌 Project Overview
+
 🎥 Guess the TV Show is an interactive web game where players guess the TV show title from a given description. The game dynamically fetches data from the TVMaze API, obscures any title mentions, and provides hints while tracking scores.
 
 This project showcases HTML, CSS, JavaScript, API integration, object-oriented programming, and UI animations for an engaging experience.
@@ -11,6 +13,7 @@ This project showcases HTML, CSS, JavaScript, API integration, object-oriented p
 ------------------------------------------------------------------------------
 
 🎯 Key Features
+
 ✅ Dynamic API Integration – Fetches real-time TV show descriptions from TVMaze API.
 ✅ Interactive UI – Players can input guesses and receive instant feedback.
 ✅ ⏳ Timer System – Players must guess the show within 15 seconds.
@@ -23,6 +26,7 @@ This project showcases HTML, CSS, JavaScript, API integration, object-oriented p
 -----------------------------------------------------------------------------
 
 🛠️ Technologies Used
+
 🖥 HTML – Structures the game interface.
 🎨 CSS – Styling, animations, and responsive design.
 🚀 JavaScript (ES6+) – Handles game logic, API calls, and user interaction.
@@ -32,13 +36,14 @@ This project showcases HTML, CSS, JavaScript, API integration, object-oriented p
 ----------------------------------------------------------------------------
 
 📥 How to Download & Install
+
 1️⃣ Clone the Repository
-bash
-Copy
-Edit
+
 git clone https://github.com/YOUR_GITHUB_USERNAME/guess-the-tv-show.git
 cd guess-the-tv-show
+
 2️⃣ Open the Project
+
 Option 1: Open index.html in your browser.
 Option 2: Use a live server extension in VS Code.
 Internet Required – The game fetches data from an online API.
@@ -46,6 +51,7 @@ Internet Required – The game fetches data from an online API.
 ----------------------------------------------------------------------------
 
 🚀 How to Play
+
 1️⃣ Click “Start Game” to begin.
 2️⃣ Read the description carefully.
 3️⃣ Type your guess in the input field.
@@ -59,6 +65,7 @@ Internet Required – The game fetches data from an online API.
 ---------------------------------------------------------------------------
 
 🔄 Game Flow
+
 graph TD;
     StartGame["🟢 Start Game"] --> FetchData["🌐 Fetch TV Show Data"];
     FetchData --> UserInput["⌨ User Inputs Guess"];
@@ -94,6 +101,7 @@ graph TD;
 -------------------------------------------------------------------------
 
 🌟 Bonus Features
+
 ✔ 🎭 Uses Classes with Private Properties – Ensures cleaner, modular code.
 ✔ 🛠 API Testing with Postman – Ensures smooth API responses.
 ✔ 🔄 Multi-Feature Expansion – Sorting, Timer, Animations, Sound Effects, Loading Spinner.
@@ -101,6 +109,7 @@ graph TD;
 -------------------------------------------------------------------------
 
 🛠️ Troubleshooting
+
 ❌ API Not Loading? – Check your internet connection.
 🔇 Music Not Playing? – Ensure autoplay is allowed in your browser.
 🐞 Found a Bug? – Open an issue or submit a pull request!
@@ -109,6 +118,7 @@ graph TD;
 -------------------------------------------------------------------------
 
 🔗 Future Enhancements
+
 🔜 Leaderboard – Compete for the highest score with others!
 🔜 Hint System – Unlock clues to make guessing easier.
 🔜 Difficulty Levels – Easy, Medium, and Hard modes.

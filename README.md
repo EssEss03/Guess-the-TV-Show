@@ -25,6 +25,7 @@ TVMaze API - Fetching real-time TV show descriptions
 
 LocalStorage - Storing high scores
 
+
 📥 How to Download & Install
 
 Clone the Repository
@@ -37,6 +38,7 @@ Open the Project
 Open index.html in your preferred browser.
 
 Ensure you have an internet connection (for API fetching).
+
 
 🚀 How to Play
 
@@ -54,6 +56,7 @@ If incorrect, the input field shakes, and you can try again.
 
 Answer before the timer reaches 0 seconds!
 
+
 🎮 Game Flow
 
 Start Game → API fetches TV show description.
@@ -68,6 +71,7 @@ Timer Runs Out → Display correct answer & load a new show.
 
 Repeat Until Game Ends.
 
+
 📝 Code Structure
 
 📌 index.html (Structure)
@@ -80,6 +84,7 @@ Input field (#guess), submit button (#submit), and score tracker.
 
 Embedded audio elements for sounds.
 
+
 🎨 styles.css (Design & Animations)
 
 Semantic HTML & Modern Styling using CSS3
@@ -87,6 +92,7 @@ Semantic HTML & Modern Styling using CSS3
 Animations: shake, fadeIn, glow, and pulse
 
 Responsive Design for mobile and desktop
+
 
 🚀 script.js (Game Logic)
 
@@ -100,6 +106,7 @@ Shake Animation on Wrong Answers.
 
 Uses Classes and Private Properties to manage game state.
 
+
 📌 Additional Enhancements (Bonus Features)
 
 ✅ Uses Classes with Private Properties for better code structure.
@@ -107,6 +114,7 @@ Uses Classes and Private Properties to manage game state.
 ✅ Tested with Postman to verify API response.
 
 ✅ Multiple Features Implemented (timer, score, sound, animations, loading spinner).
+
 
 🛠️ Troubleshooting
 

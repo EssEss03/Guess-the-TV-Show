@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TV Show Guessing Game</title>
+    <title>Guess the TV Show</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="game-container">
+
+    <!-- Homepage Screen -->
+    <div id="home-screen" class="home-container">
+        <h1>Welcome to Guess the TV Show!</h1>
+        <p>Can you guess the TV show based on the description? 🔍🎬</p>
+        <button id="startGame">Start Game</button>
+    </div>
+
+    <!-- Game Screen (Hidden at Start) -->
+    <div id="game-screen" class="game-container" style="display: none;">
         <h1>TV Show Guessing Game</h1>
         <p id="loading" style="display: none;">Loading...</p>
         <p id="description">Loading show description...</p>
@@ -18,7 +27,6 @@
         <p>Score: <span id="score">0</span></p>
         <p>🏆 High Score: <span id="highScore">0</span></p>
         <p id="timer">⏳ Time Left: 15s</p>
-
     </div>
 
     <!-- Audio Elements -->
@@ -26,15 +34,9 @@
     <audio id="wrongSound" src="sounds/wrong.mp3"></audio>
     <audio id="timeUpSound" src="sounds/time-up.mp3"></audio>
 
-    <script>
-        function playSound(soundId) {
-            let sound = document.getElementById(soundId);
-            if (sound) {
-                sound.play().catch(error => console.error("Audio playback error:", error));
-            }
-        }
-    </script>
-    
+    <!-- Background Music for Homepage -->
+    <audio id="bgMusic" src="sounds/game-music-player-console-8bit-background-intro-theme-297305.mp3" loop></audio>
+
     <script src="script.js"></script>
 </body>
 </html>

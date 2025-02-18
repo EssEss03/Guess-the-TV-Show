@@ -1,3 +1,25 @@
+// Select the background music element
+let bgMusic = document.getElementById("bgMusic");
+
+// ✅ Play background music when the homepage loads
+window.addEventListener("load", function () {
+    bgMusic.volume = 0.5; // Adjust volume level if needed
+    bgMusic.play().catch(error => console.log("Autoplay blocked:", error));
+});
+
+// Wait for the "Start Game" button click
+document.getElementById("startGame").addEventListener("click", function () {
+    document.getElementById("home-screen").style.display = "none"; // Hide homepage
+    document.getElementById("game-screen").style.display = "block"; // Show the game
+
+    // ✅ Stop background music
+    bgMusic.pause();
+    bgMusic.currentTime = 0;
+
+    // ✅ Now that the game has started, fetch the first TV show
+    fetchRandomShow();
+});
+
 let currentShow = "";
 let score = 0;
 let highScore = localStorage.getItem("highScore") || 0;
@@ -60,7 +82,7 @@ function startTimer() {
         if (timeLeft <= 0) {
             clearInterval(timer);
             document.getElementById("message").innerHTML = "⏰ Time's up! Loading new show...";
-            
+
             // ✅ Play time-up sound and wait until it's done before loading the next question
             playSound("timeUpSound", () => {
                 setTimeout(fetchRandomShow, 500); // Small delay for smoother transition
@@ -92,7 +114,7 @@ document.getElementById("submit").addEventListener("click", function () {
 
     if (userGuess.toLowerCase() === currentShow.toLowerCase()) {
         message.innerHTML = "✅ Correct! Loading new show...";
-        
+
         clearInterval(timer);
 
         // ✅ Play correct sound and load the next question *after* it finishes
@@ -141,6 +163,3 @@ function provideHint() {
 function shuffleWord(word) {
     return word.split('').sort(() => Math.random() - 0.5).join('');
 }
-
-// Load first TV show on page load
-fetchRandomShow();

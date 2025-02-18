@@ -13,6 +13,33 @@
     100% { transform: translateX(0); }
 }
 
+/* Bounce animation for homepage title */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Glow effect for Start Game button */
+@keyframes glow {
+    0% { box-shadow: 0px 0px 10px rgba(0, 198, 255, 0.4); }
+    50% { box-shadow: 0px 0px 20px rgba(0, 198, 255, 0.8); }
+    100% { box-shadow: 0px 0px 10px rgba(0, 198, 255, 0.4); }
+}
+
+/* Pulsing animation for homepage description */
+@keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+/* Floating TV Icons */
+@keyframes float {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
 /* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
@@ -20,6 +47,75 @@ body {
     text-align: center;
     padding: 40px;
     color: white;
+}
+
+/* Homepage Container */
+.home-container {
+    text-align: center;
+    padding: 50px;
+    color: white;
+    max-width: 500px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.8s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+/* Floating TV Icons */
+.tv-icon {
+    font-size: 30px;
+    position: absolute;
+    color: #ffcc00;
+    opacity: 0.7;
+    animation: float 3s infinite ease-in-out;
+}
+
+.tv-icon:nth-child(1) { top: 10px; left: 20px; animation-delay: 0s; }
+.tv-icon:nth-child(2) { top: 50px; right: 30px; animation-delay: 1s; }
+.tv-icon:nth-child(3) { bottom: 30px; left: 40px; animation-delay: 2s; }
+
+/* Homepage Title */
+.home-container h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: bounce 2s infinite ease-in-out;
+}
+
+/* Description Text */
+.home-container p {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 15px 0;
+    color: #ffcc00;
+    animation: pulse 5s infinite ease-in-out;
+}
+
+/* Start Game Button */
+#startGame {
+    width: 90%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    animation: glow 1.5s infinite ease-in-out;
+}
+
+#startGame:hover {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+    transform: scale(1.05);
 }
 
 /* Game Container */

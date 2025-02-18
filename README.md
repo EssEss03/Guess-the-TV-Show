@@ -72,6 +72,7 @@ graph TD;
 --------------------------------------------------------------------------
 
 📝 Code Structure
+
 📂 index.html (Structure)
 ✅ Homepage (#home-screen)
 ✅ Game Screen (#game-screen)

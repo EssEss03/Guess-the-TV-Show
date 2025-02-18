@@ -175,9 +175,6 @@ class Game {
     }
 }
 
-    showAnswer() {
-        document.getElementById("message").innerHTML = `💡 The correct answer was: <strong>${this.#currentShow}</strong>`;
-    }
 }
 
 // ✅ Initialize Game
